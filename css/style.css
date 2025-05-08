@@ -1,0 +1,44 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+.arrow-button-1 {
+  position: fixed;
+  top: 50%;
+  right: 40px;
+  font-size: 40px;
+  color: #ffef5c;
+  text-decoration: none;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 1000;
+}
+
+.arrow-button-2 {
+  position: fixed;
+  top: 50%;
+  right: 40px;
+  font-size: 40px;
+  color: #ab0101;
+  text-decoration: none;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 1000;
+}
+
+.arrow-button-3 {
+  position: fixed;
+  bottom: 3%;
+  right: 40px;
+  font-size: 40px;
+  color: #ab0101;
+  text-decoration: none;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 1000;
+}
+
