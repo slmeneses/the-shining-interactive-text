@@ -16,7 +16,7 @@ let lastMouseX, lastMouseY;
 let mouseMovementTotal = 0;
 let maxScrollSpeed = 30;
 
-// Subtitle logic
+
 let showSubtitle = false;
 let subtitleText = "''How do you like it?''";
 let subtitleIndex = 0;
@@ -49,7 +49,7 @@ function draw() {
   let linesNeededToFillScreen = floor((height * 0.7) / (fontSize + 10));
   let screenIsFilled = lines.length >= linesNeededToFillScreen;
 
-  // Mouse movement tracking
+
   let dx = abs(mouseX - lastMouseX);
   let dy = abs(mouseY - lastMouseY);
   lastMouseX = mouseX;
@@ -70,10 +70,10 @@ function draw() {
 
   let startingY = height * 0.7;
 
-  // 👁 Calculate bottom-most line position
+
   let lastLineY = startingY - (lines.length - 1) * (fontSize + 10) + scrollOffset;
 
-  // 👻 If the bottom line is ABOVE the top of the screen, all text is gone
+
   let textVisible = lastLineY < height;
 
   if (isActivated && textVisible && !showSubtitle) {
@@ -96,29 +96,29 @@ function draw() {
     }
   }
 
-  // Draw lines
+
   for (let i = 0; i < lines.length; i++) {
     let y = startingY - (lines.length - i) * (fontSize + 10) + scrollOffset;
     text(lines[i], width / 2, y);
   }
 
-  // Draw table
+
   fill(40, 0, 0);
   noStroke();
   rect(0, height - tableHeight, width, tableHeight);
 
-  // Draw typewriter
+
   imageMode(CENTER);
   image(typewriterImg, width / 2, height - tableHeight, typewriterSize, typewriterSize);
 
-  // Draw subtitle in center
+
   if (showSubtitle) {
     push();
     textAlign(CENTER, CENTER);
     textFont("Helvetica");
     textStyle(ITALIC);
     textSize(35);
-    stroke(0);              // black outline
+    stroke(0);              
     strokeWeight(4);   
     fill(255, 240, 100);
 

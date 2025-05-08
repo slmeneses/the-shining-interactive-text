@@ -9,7 +9,7 @@ let showDeadImage = false;
 let deadImageStartTime = 0;
 let imageCooldown = false;
 let cooldownStartTime = 0;
-let cooldownDuration = 1500; // 1.5 seconds
+let cooldownDuration = 1500; 
 
 let subtitles = [
   {
@@ -114,7 +114,7 @@ function draw() {
     imageCooldown = false;
   }
 
-  // Draw carpet inside maze path only
+
   for (let section of mazePath) {
     let x = width * section.x;
     let y = height / 2 + height * section.yOffset;
@@ -138,11 +138,11 @@ function draw() {
     drawingContext.restore();
   }
 
-  // Draw player
+
   fill(100, 180, 255);
   ellipse(player.x, player.y, player.r * 2);
 
-  // Wall detection
+
   let inMaze = false;
   for (let section of mazePath) {
     let x = width * section.x;
@@ -164,7 +164,7 @@ function draw() {
     deadImageStartTime = millis();
   }
 
-  // Subtitle reveal
+
   for (let i = 0; i < subtitles.length; i++) {
     let s = subtitles[i];
     if (player.x > width * s.trigger) s.revealed = true;
@@ -176,7 +176,7 @@ function draw() {
     }
   }
 
-  // Movement
+
   if (keyIsDown(RIGHT_ARROW)) player.x += player.speed;
   if (keyIsDown(LEFT_ARROW)) player.x -= player.speed;
   if (keyIsDown(UP_ARROW)) player.y -= player.speed;

@@ -72,8 +72,8 @@ function draw() {
   let visibleText = subtitleText.substring(0, floor(charIndex));
 
 
-  stroke(0); // black outline
-  strokeWeight(4); // editable thickness
+  stroke(0); 
+  strokeWeight(4); 
   fill(fontColor);
   textAlign(CENTER, CENTER);
   textWrap(WORD);

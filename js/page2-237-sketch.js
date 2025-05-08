@@ -1,21 +1,22 @@
+// credit to chatgpt :)
+
 let fontColor;
 let shadowColor;
 let isHoveringDoor = false;
 
-// Subtitle animation vars
+
 let subtitleText = "“...there ain’t nothing in Room 237. \nBut you ain't got no business\ngoing in there anyway.”";
 let charIndex = 0;
 let revealSpeed = 0.6;
 let revealStarted = false;
 
-// Image stuff
+
 let showerLadyImg;
 let showerRevealed = false;
 let showerStartTime = 0;
-let showDuration = 3000; // 3 seconds
+let showDuration = 3000; 
 
 function preload() {
-  // Make sure this file is uploaded in your p5.js editor
   showerLadyImg = loadImage("img/scary-lady.png");
 }
 
@@ -30,7 +31,7 @@ function setup() {
 }
 
 function draw() {
-  // Show image fullscreen with aspect ratio
+
   if (showerRevealed) {
     background(0);
     imageMode(CORNER);
@@ -55,7 +56,7 @@ function draw() {
     return;
   }
 
-  // Normal scene
+
   background(36, 13, 13); 
 
   let doorWidth = 130;
@@ -63,18 +64,18 @@ function draw() {
   let doorX = width * 0.65;
   let doorY = height * 0.45;
 
-  // Clear shadow
+
   drawingContext.shadowOffsetX = 0;
   drawingContext.shadowOffsetY = 0;
   drawingContext.shadowBlur = 0;
   drawingContext.shadowColor = 'rgba(0,0,0,0)';
 
-  // Door
+
   noStroke();
   fill(255, 240, 100); 
   rect(doorX, doorY, doorWidth, doorHeight, 0); 
 
-  // 237 label
+
   fill(0);
   textAlign(CENTER, TOP);
   textFont('Times');
@@ -82,11 +83,11 @@ function draw() {
   textSize(20);
   text("237", doorX + doorWidth / 2, doorY + 10);
 
-  // Doorknob
+
   fill(0);
   ellipse(doorX + doorWidth / 5, doorY + doorHeight * 0.55, 7, 7);
 
-  // Hover detection
+
   isHoveringDoor = mouseX > doorX && mouseX < doorX + doorWidth &&
                    mouseY > doorY && mouseY < doorY + doorHeight;
 
@@ -116,7 +117,7 @@ function drawHoverText() {
   drawingContext.shadowBlur = 13;
   drawingContext.shadowColor = shadowColor.toString();
 
-  stroke(0); // black outline
+  stroke(0); 
   strokeWeight(4);
   fill(fontColor);
   textFont('Helvetica');
@@ -132,7 +133,6 @@ function drawHoverText() {
   let visibleText = subtitleText.substring(0, floor(charIndex));
   text(visibleText, textX, textY, wrapWidth);
 
-  // Reset
   drawingContext.shadowOffsetX = 0;
   drawingContext.shadowOffsetY = 0;
   drawingContext.shadowBlur = 0;

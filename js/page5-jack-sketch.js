@@ -8,25 +8,24 @@ let fontColor;
 let shadowColor;
 
 function preload() {
-  frozenJack = loadImage('img/frozen-jack.jpg'); // make sure filename matches upload
+  frozenJack = loadImage('img/frozen-jack.jpg'); 
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  fontColor = color(255, 240, 100); // yellow
-  shadowColor = color(0, 0, 0, 150); // semi-transparent black
+  fontColor = color(255, 240, 100); 
+  shadowColor = color(0, 0, 0, 150); 
 }
 
 function draw() {
-  let fadeFactor = constrain(map(mouseX, width / 2, width, 0, 1), 0, 1); // 0 to 1
+  let fadeFactor = constrain(map(mouseX, width / 2, width, 0, 1), 0, 1); 
 
-  // Background transition
+
   let bgR = lerp(120, 255, fadeFactor);
   let bgG = lerp(0, 255, fadeFactor);
   let bgB = lerp(0, 255, fadeFactor);
   background(bgR, bgG, bgB);
 
-  // IMAGE: scale to fill canvas, maintain aspect ratio, crop if needed
   if (frozenJack) {
     let imgAspect = frozenJack.width / frozenJack.height;
     let canvasAspect = width / height;
@@ -44,22 +43,22 @@ function draw() {
     let y = (height - drawHeight) / 2;
 
     imageMode(CORNER);
-    tint(255, fadeFactor * 255); // fade in
+    tint(255, fadeFactor * 255); 
     image(frozenJack, x, y, drawWidth, drawHeight);
     noTint();
   }
 
-  // TEXT FADE CALCULATION
+
   let firstTextAlpha = (1 - fadeFactor) * 255;
   let secondTextAlpha = fadeFactor * 255;
 
-  // Shared text style
+
   textFont('Helvetica');
   textStyle(ITALIC);
   textSize(34);
   textAlign(CENTER, CENTER);
 
-  // === FADE OUT: "remember..." ===
+
   if (firstTextAlpha > 5) {
     if (charIndex < subtitleText.length) {
       charIndex += revealSpeed;
@@ -82,7 +81,7 @@ function draw() {
     text(visible, width / 2, height / 2);
   }
 
-  // === FADE IN: "it isn’t real." ===
+
   if (secondTextAlpha > 5) {
     drawingContext.shadowOffsetX = 2;
     drawingContext.shadowOffsetY = 2;
@@ -99,7 +98,7 @@ function draw() {
     text(secondText, width / 2, height / 2);
   }
 
-  // Reset shadow
+
   drawingContext.shadowOffsetX = 0;
   drawingContext.shadowOffsetY = 0;
   drawingContext.shadowBlur = 0;
